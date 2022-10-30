@@ -1,11 +1,4 @@
-const Config = (
-  xAxis_data,
-  totalData,
-  rightXaxis,
-  leftXaxis,
-  TotalXaxis,
-  netSum
-) => {
+const Config = (Xaxis, totData, rXaxis, lXaxis, totXaxis, tot) => {
   const config = {
     title: {
       text: "Alphaa AI Waterfall Chart",
@@ -17,11 +10,11 @@ const Config = (
       },
     },
     legend: {
-      data: ["Loss", "Profit"],
+      data: ["Profit", "Loss"],
     },
     xAxis: {
       type: "category",
-      data: xAxis_data,
+      data: Xaxis,
     },
     yAxis: {
       type: "value",
@@ -42,7 +35,7 @@ const Config = (
             color: "transparent",
           },
         },
-        data: totalData,
+        data: totData,
       },
       {
         name: "Profit",
@@ -53,10 +46,10 @@ const Config = (
           position: "top",
         },
         barWidth: "80%",
-        data: netSum < 0 ? rightXaxis : leftXaxis,
+        data: tot < 0 ? rXaxis : lXaxis,
         itemStyle: {
-          borderColor: "#0000FF",
-          color: "#0000FF",
+          borderColor: "#89CFF0",
+          color: "#89CFF0",
         },
       },
       {
@@ -68,7 +61,7 @@ const Config = (
           position: "bottom",
         },
         barWidth: "80%",
-        data: netSum > 0 ? rightXaxis : leftXaxis,
+        data: tot > 0 ? rXaxis : lXaxis,
         itemStyle: {
           borderColor: "#D2042D",
           color: "#D2042D",
@@ -83,7 +76,7 @@ const Config = (
           position: "top",
         },
         barWidth: "80%",
-        data: TotalXaxis,
+        data: totXaxis,
         itemStyle: {
           borderColor: "#0000FF",
           color: "#0000FF",
